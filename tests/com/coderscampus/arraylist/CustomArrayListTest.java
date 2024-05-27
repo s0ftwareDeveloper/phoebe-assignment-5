@@ -44,11 +44,6 @@ class CustomArrayListTest<T> {
         Integer originalSize = sut.getSize();
 
         sut.add(index, value);
-        System.out.println("************************");
-
-        for (int i = 0; i < sut.getSize(); i++) {
-            System.out.println(sut.get(i));
-        }
 
         for (int i = 0; i < sut.getSize(); i++) {
 
@@ -114,6 +109,11 @@ class CustomArrayListTest<T> {
 
     }
 
+    @Test
+    void should_add_null() {
+        sut.add(null);
+    }
+
     @Nested
     class PrePopulatedTests {
 
@@ -134,10 +134,6 @@ class CustomArrayListTest<T> {
         @Test
         void should_add_item_to_beginning_of_list() {
 
-
-            for (int i = 0; i < sut.getSize(); i++) {
-                System.out.println(sut.get(i));
-            }
             checkArrayAdd(0, (T) (Integer) 22);
 
         }
@@ -190,6 +186,11 @@ class CustomArrayListTest<T> {
             sut.remove(7);
             sut.remove(8);
             assertEquals(originalSize - 2, sut.getSize());
+        }
+
+        @Test
+        void should_add_null_at_index() {
+            sut.add(7, null);
         }
 
     }
